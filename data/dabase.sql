@@ -46,6 +46,16 @@ CREATE TABLE IF NOT EXISTS "client"(
 "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 "business_name" ALPHANUM NOT NULL UNIQUE
 );
+
+CREATE TABLE IF NOT EXISTS "financial_datas"(
+    "id" INT GENERATED ALWAYS AS IDENTITY KEY,
+    "yearly_mileage" INT NOT NULL,
+    "in_charge_mileage" INT NOT NULL -- <= yearly
+    "nb_towed_vehicles" INT -- 0 ou 1
+    "nb_days_in_operation" INT -- <365
+    
+
+)
 -------------------------------
 -- EXAMPLE CREATE FUNCTION ADD
 -------------------------------

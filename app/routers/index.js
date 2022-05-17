@@ -6,6 +6,10 @@ const errorController = require('../controller/errorController');
 const router = express.Router();
 
 /* generic CRUD */
+
+
+
+
 router.get('/:entity', genericController.getAll);
 router.get('/:entity/:id', genericController.getOne);
 router.post('/:entity', genericController.createOne);
