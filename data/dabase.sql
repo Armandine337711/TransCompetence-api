@@ -112,6 +112,12 @@ CREATE TABLE IF NOT EXISTS "financial_datas"(
     "yearly_activity_driver" INT,
     "monthly_working_time" INT,
     "monthly_driving_time" INT,
+    "monthly_driver_salary" FLOAT,
+    "yearly_bonuses" FLOAT,
+    "employment_contribution_rate" FLOAT,
+    "yearly_travel_allowance" FLOAT,
+    "nb_paid_month" INT,
+    "cost_component_label" TEXT,
     
 
 
