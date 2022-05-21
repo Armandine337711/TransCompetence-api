@@ -118,11 +118,10 @@ CREATE TABLE IF NOT EXISTS "financial_datas"(
     "yearly_travel_allowance" FLOAT,
     "nb_paid_month" INT,
     "cost_component_label" TEXT,
-    
-
-
-
-)
+    "cost_component_unit" TEXT,
+    "nb_trying_unit" INT,
+    "yearly_amount_cist_component" FLOAT
+);
 -------------------------------
 -- EXAMPLE CREATE FUNCTION ADD
 -------------------------------
