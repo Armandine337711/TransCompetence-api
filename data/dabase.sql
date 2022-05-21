@@ -122,6 +122,38 @@ CREATE TABLE IF NOT EXISTS "financial_datas"(
     "nb_trying_unit" INT,
     "yearly_amount_cist_component" FLOAT
 );
+
+CREATE TABLE IF NOT EXISTS "cnr_rating"(
+"id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+"rating_date" TIMESTAMPSTZ UNIQUE NOT NULL,
+"frozen_fridge_ld_ea" FLOAT,
+"professionnal_fuel" FLOAT,
+"service" FLOAT,
+"insfrastructure" FLOAT,
+"structural_costs" FLOAT
+);
+
+CREATE TABLE IF NOT EXISTS "costing"(
+"id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+"quotation_date" TIMESTAMPSTZ NOT NULL,
+"member_id" INT NOT NULL REFERENCES "member"("id"),
+"client_id" INT NOT NULL REFERENCES "client"("id"),
+"AB_distance" FLOAT, -- ou INT
+"AB_toll" FLOAT,
+"AB_duration" FLOAT,
+"B_loading_time" FLOAT,
+"BC_distance" FLOAT,
+"BC_toll" FLOAT,
+"BC_duration" FLOAT,
+"C_unloading_time" FLOAT,
+"CA_distance" FLOAT,
+"CA_toll" FLOAT,
+"CA_duration" FLOAT,
+"loading_unit_id" INT REFERENCES "loading_unit"("id"),
+"quantity_loading_unit" FLOAT,
+"dayly_working_time" FLOAT,
+
+);
 -------------------------------
 -- EXAMPLE CREATE FUNCTION ADD
 -------------------------------
