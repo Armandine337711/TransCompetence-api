@@ -30,6 +30,7 @@ INSERT INTO "position"("entitled") VALUES
 
 CREATE TABLE IF NOT EXISTS "member"(
 "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+"login" TEXT_ONLY NOT NULL UNIQUE,
 "firstname" TEXT_ONLY NOT NULL,
 "lastname" TEXT_ONLY NOT NULL,
 "email" TEXT_MAIL NOT NULL UNIQUE,
@@ -62,6 +63,7 @@ INSERT INTO "financing_method"("method") VALUES
 
 CREATE TABLE IF NOT EXISTS "financial_datas"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "exercice_year" TIMESTAMPTZ,
     "yearly_mileage" INT NOT NULL,
     "in_charge_mileage" INT NOT NULL, -- <= yearly
     "nb_towed_vehicles" INT, -- 0 ou 1

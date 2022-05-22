@@ -8,6 +8,7 @@ DROP FUNCTION IF EXISTS "member_update", "connection_update", "client_update", "
 CREATE FUNCTION "member_update"(updatedDatas json) RETURNS SETOF "member" AS
     $$
     UPDATE "member" SET
+    "login" = updatedDatas ->> 'login',
     "firstname" = updatedDatas ->> 'firstname',
     "lastname" = updatedDatas ->> 'lastname',
     "email" = updatedDatas ->> 'email',
@@ -49,6 +50,7 @@ LANGUAGE sql VOLATILE STRICT;
 CREATE FUNCTION "financial_datas_update"(updatedDatas json) RETURNS SETOF "financial_datas" AS
 $$
 UPDATE "financial_datas" SET
+    "exercice_year" = (updatedDatas ->> 'exercice_year')::timestamptz,
     "yearly_mileage" = (updatedDatas ->>'yearly_mileage')::int,
     "in_charge_mileage" = (updatedDatas ->>'in_charge_mileage')::int,
     "nb_towed_vehicles" = (updatedDatas ->>'nb_towed_vehicles')::int,
