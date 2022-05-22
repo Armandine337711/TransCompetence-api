@@ -1,7 +1,10 @@
-const genericModel = require("../Model/genericModel");
+const genericModel = require("../models/genericModel");
 const bcrypt = require('bcrypt')
 
 const genericController = {
+    async home(request, response, next) {
+        response.json({ data: 'test' })
+    },
     async getAll(request, response, next) {
         try {
             const { entity } = request.params;
