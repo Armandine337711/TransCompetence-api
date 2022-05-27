@@ -4,11 +4,13 @@ DROP FUNCTION IF EXISTS "member_add", "client_add", "loading_unit_add", "financi
 
 CREATE FUNCTION "member_add"(newDatas json) RETURNS SETOF "member" AS
 $$
-INSERT INTO "member"("firstname", "lastname", "email", "pwd") VALUES (
+INSERT INTO "member"("login", "firstname", "lastname", "email", "pwd", "position_id") VALUES (
+    newDatas ->> 'login',
     newDatas ->> 'firstname',
     newDatas ->> 'lastname',
     newDatas ->> 'email',
-    newDatas ->> 'pwd'
+    newDatas ->> 'pwd',
+    (newDatas ->> 'position_id')::int
 
 ) RETURNING *;
 $$

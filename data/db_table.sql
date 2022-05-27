@@ -30,11 +30,12 @@ INSERT INTO "position"("entitled") VALUES
 
 CREATE TABLE IF NOT EXISTS "member"(
 "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+"login" TEXT_ONLY NOT NULL UNIQUE,
 "firstname" TEXT_ONLY NOT NULL,
 "lastname" TEXT_ONLY NOT NULL,
 "email" TEXT_MAIL NOT NULL UNIQUE,
 "pwd" TEXT NOT NULL,
-"position_id" INT REFERENCES "position"("id") DEFAULT 3,
+"position_id" INT NOT NULL REFERENCES "position"("id"),
 "createdAt" TIMESTAMPTZ DEFAULT NOW(),
 "updatedAt" TIMESTAMPTZ DEFAULT NOW(),
 "last_connection" TIMESTAMPTZ

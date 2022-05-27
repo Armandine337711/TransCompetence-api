@@ -8,6 +8,7 @@ DROP FUNCTION IF EXISTS "member_update", "connection_update", "client_update", "
 CREATE FUNCTION "member_update"(updatedDatas json) RETURNS SETOF "member" AS
     $$
     UPDATE "member" SET
+    "login" = updatedDatas ->> 'login',
     "firstname" = updatedDatas ->> 'firstname',
     "lastname" = updatedDatas ->> 'lastname',
     "email" = updatedDatas ->> 'email',
