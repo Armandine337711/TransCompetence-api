@@ -1,4 +1,4 @@
-const genericModel = require("../Model/genericModel");
+const genericModel = require("../models/genericModel");
 const bcrypt = require('bcrypt')
 
 const genericController = {
