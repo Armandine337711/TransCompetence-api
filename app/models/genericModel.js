@@ -44,6 +44,7 @@ const genericModel = {
     },
 
     async deleteOne(entity, id) {
+        console.log(id)
         await client.query(`DELETE FROM ${entity} WHERE id = $1`, [id])
         const result = this.getOne(entity, id);
         if (!result) {
