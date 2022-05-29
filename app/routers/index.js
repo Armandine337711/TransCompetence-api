@@ -1,14 +1,18 @@
 const express = require('express');
-
+const connectionRouter = require('./connectionRouter')
 const genericController = require('../controllers/genericController');
-// const errorController = require('../controller/errorController');
+const connectionController = require('../controllers/connectionController')
+
+const errorController = require('../controllers/errorController');
 
 const router = express.Router();
+
+router.post('/connection/login', connectionController.login)
 
 /* generic CRUD */
 
 
-
+// router.use('/connection', connectionRouter);
 
 router.get('/:entity', genericController.getAll);
 router.get('/:entity/:id', genericController.getOne);

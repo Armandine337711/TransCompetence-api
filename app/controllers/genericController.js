@@ -1,6 +1,6 @@
 const genericModel = require("../models/genericModel");
 const bcrypt = require('bcrypt');
-const bcryptMiddleware = require("../middlewares/bcryptMiddleware");
+// const bcryptMiddleware = require("../middlewares/bcryptMiddleware");
 // const res = require("express/lib/response");
 
 const genericController = {
@@ -38,10 +38,14 @@ const genericController = {
 
             if (entity === 'member') {
                 // const hashing = await bcryptMiddleware.hashData(newDatas.pwd, 10)
-                await bcrypt.hash(newDatas.pwd, 15)
-                    .then((hash) => newDatas.pwd = hash)
-                    .catch((error) => res.status(500).json({ error }).send(console.log(error)))
-
+                // await bcrypt.hash(newDatas.pwd, 15)
+                //     .then((hash) => newDatas.pwd = hash)
+                //     .catch((error) => res.status(500).json({ error }).send(console.log(error)))
+                bcrypt.genSalt(10, function (err, salt) {
+                    bcrypt.hash(newDatas.pwd, salt, function (err, hash) {
+                        newDatas.pwd = hash
+                    });
+                });
             }
 
             const data = await genericModel.createOne(entity, newDatas);
