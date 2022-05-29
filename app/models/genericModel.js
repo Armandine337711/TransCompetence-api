@@ -5,15 +5,24 @@ const genericModel = {
         const query = {
             text: `SELECT * FROM ${entity}`
         };
+        if (entity === "member") {
+            query.text = `SELECT * FROM "member_role" `
+        }
         const result = await client.query(query);
         return result.rows;
     },
 
     async getOne(entity, id) {
+
+        const mainTextQuery = `SELECT * FROM ${entity}`
+        if (entity === "member") {
+            mainTextQuery = `SELECT * FROM "member_role" WHERE id = $1`
+        }
         const query = {
-            text: `SELECT * FROM ${entity} WHERE id = $1`,
+            text: `${mainTextQuery} WHERE id = $1`,
             values: [id]
         };
+
         const result = await client.query(query);
         return result.rows[0];
     },
@@ -44,6 +53,7 @@ const genericModel = {
     },
 
     async deleteOne(entity, id) {
+        console.log(id)
         await client.query(`DELETE FROM ${entity} WHERE id = $1`, [id])
         const result = this.getOne(entity, id);
         if (!result) {

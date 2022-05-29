@@ -38,8 +38,15 @@ const genericController = {
             const newDatas = request.body;
 
             if (entity === 'member') {
-                const hashedPassword = bcrypt.hashSync(newDatas.password, 10);
-                newDatas.password = hashedPassword;
+                // const hashing = await bcryptMiddleware.hashData(newDatas.pwd, 10)
+                // await bcrypt.hash(newDatas.pwd, 15)
+                //     .then((hash) => newDatas.pwd = hash)
+                //     .catch((error) => res.status(500).json({ error }).send(console.log(error)))
+                bcrypt.genSalt(10, function (err, salt) {
+                    bcrypt.hash(newDatas.pwd, salt, function (err, hash) {
+                        newDatas.pwd = hash
+                    });
+                });
             }
 
             const data = await genericModel.createOne(entity, newDatas);
