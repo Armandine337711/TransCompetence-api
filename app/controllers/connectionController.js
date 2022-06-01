@@ -23,7 +23,8 @@ const connectionController = {
                         }
                         const accessToken = generateAccessToken(data)
                         // j'envoie le token en front et les vérifications de droits se feront dans un middleware en front
-                        response.json({ accessToken })
+                        console.log(accessToken, data);
+                        response.json({ accessToken, data })
                     } else {
                         console.log("pas le bon mdp")
                         response.status(401).send('invalid credentials')
