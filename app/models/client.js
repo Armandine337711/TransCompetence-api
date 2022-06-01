@@ -12,14 +12,6 @@ const pool = new Pool({
     }
 });
 
-<<<<<<< HEAD
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-=======
->>>>>>> main-dev
+
 
 module.exports = pool;
