@@ -34,6 +34,7 @@ LANGUAGE sql VOLATILE STRICT;
 
 CREATE FUNCTION "financial_datas_add"(newDatas json) RETURNS SETOF "financial_datas" AS
 $$
+<<<<<<< HEAD
 INSERT INTO "financial_datas"("exercice_year", "yearly_mileage", "in_charge_mileage", "nb_towed_vehicles", "nb_days_in_operation", "loading_unit_id", "loading_capacity", "capacity_utilisation_factor", "gazoline_consumption", "average_price_liter", "proportion_tanker_supply", "average_price_liter_tanker", "km_cost_tyres", "nb_tyres_motor_vehicle", "nb_tyres_towed_vehicle", "price_tyre_motor_vehicle", "price_tyre_towed_vehicle", "lifetime_motor_vehicle", "lifetime_towed_vehicle", "yearly_maintenance_cost", "yearly_toll_cost", "duration_motor_vehicle_use", "motor_vehicle_loading_unit_id", "value_motor_vehicle", "motor_vehicle_loan_amount", "motor_vehicle_borrowing_rate", "motor_vehicle_loan_duration", "mv_resale_value", "mv_contract_length", "mv_monthly_rental_amount", "optional purchase value", "duration_towed_vehicle", "towed_vehicle_loading_unit_id", "value_towed_vehicle", "towed_vehicle_loan_amount", "towed_vehicle_borrowing_rate", "towed_vehicle_loan_duration", "tv_resale_value", "tv_contract_length", "tv_monthly_rental_amount", "yearly_insurance_amount", "yearly_goods_carried_insurance_amount", "yearly_axle_tax", "yearly structural_cost", "nb_driver_per_vehicle", "yearly_activity_driver", "monthly_working_time", "monthly_driving_time", "monthly_driver_salary", "yearly_bonuses", "employment_contribution_rate", "yearly_travel_allowance", "nb_paid_month", "cost_component_label", "cost_component_unit", "nb_trying_unit", "yearly_amount_cist_component") VALUES (
     (newDatas ->>'exercice_year')::timestamptz,
     (newDatas ->>'yearly_mileage')::int,
@@ -92,6 +93,10 @@ INSERT INTO "financial_datas"("exercice_year", "yearly_mileage", "in_charge_mile
     newDatas ->>'cost_component_unit',
     (newDatas ->>'nb_trying_unit')::int,
     (newDatas ->>'yearly_amount_cist_component')::float
+=======
+INSERT INTO "financial_datas"("exercice_year") VALUES (
+    (newDatas ->>'exercice_year')::int
+>>>>>>> main-dev
 ) RETURNING *;
 $$
 LANGUAGE sql VOLATILE STRICT;

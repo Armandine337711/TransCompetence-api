@@ -63,12 +63,18 @@ INSERT INTO "financing_method"("method") VALUES
 
 CREATE TABLE IF NOT EXISTS "financial_datas"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+<<<<<<< HEAD
     "exercice_year" TIMESTAMPTZ,
     "yearly_mileage" INT NOT NULL,
     "in_charge_mileage" INT NOT NULL, -- <= yearly
+=======
+    "exercice_year" INT NOT NULL UNIQUE,
+    "yearly_mileage" INT,
+    "in_charge_mileage" INT, -- <= yearly
+>>>>>>> main-dev
     "nb_towed_vehicles" INT, -- 0 ou 1
     "nb_days_in_operation" INT, -- <365
-    "loading_unit_id" INT NOT NULL REFERENCES "loading_unit"("id"),
+    "loading_unit_id" INT REFERENCES "loading_unit"("id"),
     "loading_capacity" INT,
     "capacity_utilisation_factor" FLOAT, -- >100
     "gazoline_consumption" FLOAT,
