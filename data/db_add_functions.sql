@@ -34,8 +34,8 @@ LANGUAGE sql VOLATILE STRICT;
 
 CREATE FUNCTION "financial_datas_add"(newDatas json) RETURNS SETOF "financial_datas" AS
 $$
-INSERT INTO "financial_datas"("yearly_mileage") VALUES (
-    (newDatas ->>'yearly_mileage')::int
+INSERT INTO "financial_datas"("exercice_year") VALUES (
+    (newDatas ->>'exercice_year')::int
 ) RETURNING *;
 $$
 LANGUAGE sql VOLATILE STRICT;
