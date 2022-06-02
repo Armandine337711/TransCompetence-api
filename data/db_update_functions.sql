@@ -80,7 +80,7 @@ UPDATE "financial_datas" SET
     "mv_resale_value" = (updatedDatas ->>'mv_resale_value')::float,
     "mv_contract_length" = (updatedDatas ->>'mv_contract_length')::int,
     "mv_monthly_rental_amount" = (updatedDatas ->>'mv_monthly_rental_amount')::float,
-    "optional purchase value" = (updatedDatas ->>'optional purchase value')::float,
+    "optional_purchase_value" = (updatedDatas ->>'optional purchase value')::float,
     "duration_towed_vehicle" = (updatedDatas ->>'duration_towed_vehicle')::int,
     "towed_vehicle_loading_unit_id" = (updatedDatas ->>'towed_vehicle_loading_unit_id')::int,
     "value_towed_vehicle" = (updatedDatas ->>'value_towed_vehicle')::float,
