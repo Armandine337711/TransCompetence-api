@@ -85,9 +85,9 @@ CREATE TABLE IF NOT EXISTS "financial_datas"(
     "yearly_maintenance_cost" FLOAT,
     "yearly_toll_cost" FLOAT, -- trad toll = péage
     "duration_motor_vehicle_use" FLOAT, -- ou float ?
-    "motor_vehicle_loading_unit" ALPHANUM, -- 1 2 ou 3  default valeur ?
-    "value_motor_vehicle" FLOAT, --ou INT
+    --"motor_vehicle_loading_unit" ALPHANUM, -- 1 2 ou 3  default valeur ?
     "mv_financing_method_id" INT REFERENCES "financing_method"("id"),
+    "value_motor_vehicle" FLOAT, --ou INT
     "motor_vehicle_loan_amount" FLOAT, -- si emprunt
     "motor_vehicle_borrowing_rate" FLOAT, -- <100 si emprunt
     "motor_vehicle_loan_duration" FLOAT, -- si emprunt
@@ -95,13 +95,12 @@ CREATE TABLE IF NOT EXISTS "financial_datas"(
     "mv_contract_length" INT, -- si LLD ou crédit bail
     "mv_monthly_rental_amount" FLOAT,
     "mv_optional_purchase_value" FLOAT,
-    "duration_towed_vehicle" INT,
-    "towed_vehicle_loading_unit" ALPHANUM,
+    "duration_towed_vehicle" FLOAT,
+   "tv_financing_method_id" INT REFERENCES "financing_method"("id"),
     "value_towed_vehicle" FLOAT,
-    "tv_financing_method_id" INT REFERENCES "financing_method"("id"),
     "towed_vehicle_loan_amount" FLOAT,
     "towed_vehicle_borrowing_rate" FLOAT,
-    "towed_vehicle_loan_duration" INT,
+    "towed_vehicle_loan_duration" FLOAT,
     "tv_resale_value" FLOAT,
     "tv_contract_length" INT,
     "tv_monthly_rental_amount" FLOAT,
