@@ -69,7 +69,7 @@ const genericController = {
                     response.json({ data })
                 }
             } else {
-                next()
+                next(error)
             }
 
         } catch (error) {

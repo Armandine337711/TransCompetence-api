@@ -24,13 +24,7 @@ newDatas ->> 'buisness_name'
 $$
 LANGUAGE sql VOLATILE STRICT;
 
-CREATE FUNCTION "loading_unit_add"(newDatas json) RETURNS SETOF "loading_unit" AS
-$$
-INSERT INTO "loading_unit"("unit") VALUES (
-newDatas ->> 'unit'
-) RETURNING *;
-$$
-LANGUAGE sql VOLATILE STRICT;
+
 
 CREATE FUNCTION "financial_datas_add"(newDatas json) RETURNS SETOF "financial_datas" AS
 $$
@@ -70,7 +64,7 @@ INSERT INTO "costing"("quotation_date", "member_id", "client_id", "AB_distance",
 (newDatas ->> 'CA_distance')::float,
 (newDatas ->> 'CA_toll')::float,
 (newDatas ->> 'CA_duration')::float,
-(newDatas ->> 'loading_unit_id')::int,
+newDatas ->> 'loading_unit_id',
 (newDatas ->> 'quantity_loading_unit')::float,
 (newDatas ->> 'dayly_working_time')::float
 ) RETURNING *;

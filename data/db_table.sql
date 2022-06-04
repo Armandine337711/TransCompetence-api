@@ -46,11 +46,6 @@ CREATE TABLE IF NOT EXISTS "client"(
 "buisness_name" ALPHANUM NOT NULL UNIQUE
 );
 
--- CREATE TABLE IF NOT EXISTS "loading_unit"(
--- "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
--- "unit" TEXT_ONLY NOT NULL UNIQUE
--- );
-
 CREATE TABLE IF NOT EXISTS "financing_method"(
 "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 "method" TEXT_ONLY NOT NULL UNIQUE
@@ -152,7 +147,7 @@ CREATE TABLE IF NOT EXISTS "costing"(
 "CA_distance" FLOAT,
 "CA_toll" FLOAT,
 "CA_duration" FLOAT,
-"loading_unit_id" INT REFERENCES "loading_unit"("id"),
+"loading_unit_id" ALPHANUM,
 "quantity_loading_unit" FLOAT,
 "dayly_working_time" FLOAT
 );
