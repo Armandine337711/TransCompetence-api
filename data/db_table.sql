@@ -65,15 +65,15 @@ CREATE TABLE IF NOT EXISTS "financial_datas"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "exercice_year" INT NOT NULL UNIQUE,
     "yearly_mileage" INT,
-    "in_charge_mileage" INT, -- <= yearly
-    "nb_towed_vehicles" INT, -- 0 ou 1
-    "nb_days_in_operation" INT, -- <365
+    "in_charge_mileage" INT,
+    "nb_towed_vehicles" INT,
+    "nb_days_in_operation" INT,
     "loading_unit" ALPHANUM,
     "loading_capacity" FLOAT,
-    "capacity_utilisation_factor" FLOAT, -- >100
+    "capacity_utilisation_factor" FLOAT,
     "gazoline_consumption" FLOAT,
     "average_price_liter" FLOAT,
-    "proportion_tanker_supply" FLOAT, -- <100
+    "proportion_tanker_supply" FLOAT,
     "average_price_liter_tanker" FLOAT,
     "km_cost_tyres" FLOAT,
     "nb_tyres_motor_vehicle" INT,
