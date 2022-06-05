@@ -39,7 +39,7 @@ const genericModel = {
 
     async updateOne(entity, updatedDatas) {
 
-        if (entity === "dp") {
+        if (entity == "dp") {
             entity = `${entity}${updatedDatas.dp}`
         }
         const result = await client.query(`SELECT * FROM ${entity}_update($1)`, [updatedDatas]);
