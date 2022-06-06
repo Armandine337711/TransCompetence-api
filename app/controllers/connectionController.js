@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken');
 const connectionController = {
     async login(request, response, next) {
         try {
-            console.log(request.body)
+            console.log("request", request.body)
             const { login, password } = request.body
             //je vérifie que le login existe dans la bdd
             const data = await connectionModel.login(login);
-            console.log("minie pass", password)
+            console.log("minie ", data)
 
             // le login existe je vérifie le mot de passe
             if (data) {

@@ -47,6 +47,7 @@ const genericController = {
                         newDatas.pwd = hash
                     });
                 });
+
             }
 
             const data = await genericModel.createOne(entity, newDatas);
@@ -63,6 +64,7 @@ const genericController = {
         try {
             const { entity, id } = request.params;
             const updatedDatas = request.body;
+            console.log(typeOff(updatedDatas.id))
             if (parseInt(id) == parseInt(updatedDatas.id)) {
                 const data = await genericModel.updateOne(entity, updatedDatas);
                 if (data) {
