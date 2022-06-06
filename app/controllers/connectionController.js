@@ -5,11 +5,9 @@ const jwt = require('jsonwebtoken');
 const connectionController = {
     async login(request, response, next) {
         try {
-            console.log("request", request.body)
             const { login, password } = request.body
             //je vérifie que le login existe dans la bdd
             const data = await connectionModel.login(login);
-            console.log("minie ", data)
 
             // le login existe je vérifie le mot de passe
             if (data) {
@@ -17,7 +15,8 @@ const connectionController = {
                     console.log(result)
                     if (result) {
                         // le mot de passe correspond, je crée le token
-
+                        console.log("je suis dans le vrai")
+                        console.log(data)
                         const generateAccessToken = (data) => {
                             return jwt.sign(data, process.env.ACCESS_PRIVATE_TOKEN, { expiresIn: '1800s' });
                         }
