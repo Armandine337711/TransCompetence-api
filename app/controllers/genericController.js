@@ -1,5 +1,6 @@
 const genericModel = require("../models/genericModel");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const connectionModel = require("../models/connectionModel");
 
 const genericController = {
     async home(request, response, next) {
@@ -42,20 +43,37 @@ const genericController = {
                 // await bcrypt.hash(newDatas.pwd, 15)
                 //     .then((hash) => newDatas.pwd = hash)
                 //     .catch((error) => res.status(500).json({ error }).send(console.log(error)))
-                bcrypt.genSalt(10, function (err, salt) {
-                    bcrypt.hash(newDatas.pwd, salt, function (err, hash) {
-                        newDatas.pwd = hash
-                        console.log("hash1", newDatas.pwd)
-                    });
-                    console.log("hash2", newDatas.pwd)
-                });
+                //     bcrypt.genSalt(10, function (err, salt) {
+                //         bcrypt.hash(newDatas.pwd, salt, function (err, hash) {
+                //             newDatas.pwd = hash
+                //             console.log("hash1", newDatas.pwd)
+                //             genericModel.createOne(entity, newDatas);
 
+
+                //         });
+
+
+
+                //     });
+
+                //     const data = await connectionModel.login(newDatas.login)
+                //     if (data) {
+                //         response.json({ data });
+                //     }
+                // } else {
+                //    
+
+                const salt = bcrypt.genSaltSync(10);
+                const hash = bcrypt.hashSync(newDatas.pwd, salt);
+                newDatas.pwd = hash
+                console.log(newDatas.pwd)
+                const data = await genericModel.createOne(entity, newDatas);
+                if (data) {
+                    response.json({ data });
+                }
             }
 
-            const data = await genericModel.createOne(entity, newDatas);
-            if (data) {
-                response.json({ data });
-            }
+
         } catch (error) {
             next(error);
         }
