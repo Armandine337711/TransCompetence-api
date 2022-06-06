@@ -44,8 +44,10 @@ const genericController = {
                 //     .catch((error) => res.status(500).json({ error }).send(console.log(error)))
                 bcrypt.genSalt(10, function (err, salt) {
                     bcrypt.hash(newDatas.pwd, salt, function (err, hash) {
+                        console.log(hash)
                         newDatas.pwd = hash
                     });
+
                 });
 
             }
