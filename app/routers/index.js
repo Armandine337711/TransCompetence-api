@@ -11,13 +11,13 @@ router.post('/connection/login', connectionController.login)
 
 /* generic CRUD */
 
-
+router.patch('/dp/1', genericController.updateOne)
 // router.use('/connection', connectionRouter);
 
 router.get('/:entity', genericController.getAll);
 router.get('/:entity/:id', genericController.getOne);
 router.post('/:entity', genericController.createOne);
-router.patch('/:entity/:id', console.log("truc"), genericController.updateOne);
+router.patch('/:entity/:id', genericController.updateOne);
 router.delete('/:entity', genericController.deleteAll);
 router.delete('/:entity/:id', genericController.deleteOne);
 // router.use(errorController.error404);
