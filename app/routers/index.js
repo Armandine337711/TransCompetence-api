@@ -11,7 +11,7 @@ router.post('/connection/login', connectionController.login)
 
 /* generic CRUD */
 
-// router.patch('/dp/1', genericController.updateOne)
+router.patch('/dp/1', genericController.updateOne)
 // router.use('/connection', connectionRouter);
 
 router.get('/:entity', genericController.getAll);
