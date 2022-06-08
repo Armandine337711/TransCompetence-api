@@ -23,11 +23,8 @@ const genericController = {
 
     async getOne(request, response, next) {
         try {
-            console.log("coucou 1")
             const { entity, id } = request.params;
-            console.log("entity", entity, id)
             const data = await genericModel.getOne(entity, id);
-            console.log("data", data)
             if (data) {
                 response.json({ data });
             }
@@ -63,9 +60,10 @@ const genericController = {
     async updateOne(request, response, next) {
 
         try {
+            console.log("coucou update")
             const { entity, id } = request.params;
             const updatedDatas = request.body;
-            console.log(typeOff(updatedDatas.id))
+            console.log(typeof (updatedDatas.id))
             if (parseInt(id) == parseInt(updatedDatas.id)) {
                 const data = await genericModel.updateOne(entity, updatedDatas);
                 if (data) {
