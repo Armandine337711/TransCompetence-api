@@ -23,9 +23,11 @@ const genericController = {
 
     async getOne(request, response, next) {
         try {
-            console.log("coucou")
+            console.log("coucou 1")
             const { entity, id } = request.params;
+            console.log("entity", entity, id)
             const data = await genericModel.getOne(entity, id);
+            console.log("data", data)
             if (data) {
                 response.json({ data });
             }
