@@ -23,6 +23,7 @@ const genericController = {
 
     async getOne(request, response, next) {
         try {
+            console.log("coucou")
             const { entity, id } = request.params;
             const data = await genericModel.getOne(entity, id);
             if (data) {
