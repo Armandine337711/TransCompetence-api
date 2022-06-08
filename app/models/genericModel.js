@@ -23,7 +23,7 @@ const genericModel = {
             values: [id]
         };
 
-        const result = await client.query(query); z
+        const result = await client.query(query);
         return result.rows[0];
     },
 

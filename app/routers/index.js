@@ -17,7 +17,7 @@ router.post('/connection/login', connectionController.login)
 router.get('/:entity', genericController.getAll);
 router.get('/:entity/:id', genericController.getOne);
 router.post('/:entity', genericController.createOne);
-router.patch('/:entity/:id', genericController.updateOne);
+router.patch('/:entity/:id', console.log("truc"), genericController.updateOne);
 router.delete('/:entity', genericController.deleteAll);
 router.delete('/:entity/:id', genericController.deleteOne);
 // router.use(errorController.error404);
