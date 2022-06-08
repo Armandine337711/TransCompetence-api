@@ -30,6 +30,7 @@ const genericModel = {
     async createOne(entity, newDatas) {
         // const verify = this.getAll(entity)
         // if (verify){
+        console.log("create")
         const result = await client.query(`SELECT * FROM ${entity}_add($1)`, [newDatas])
         return result.rows[0];
         // }

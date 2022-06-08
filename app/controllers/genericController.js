@@ -35,11 +35,12 @@ const genericController = {
 
     async createOne(request, response, next) {
         try {
+            console.log("controlleer createone")
             const { entity } = request.params;
             const newDatas = request.body;
 
             if (entity === 'member') {
-
+                console.log("entity member")
 
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(newDatas.pwd, salt);
@@ -49,6 +50,10 @@ const genericController = {
                 if (data) {
                     response.json({ data });
                 }
+            }
+            const data = await genericModel.createOne(entity, newDatas);
+            if (data) {
+                response.json({ data });
             }
 
 

@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS "costing"(
 "CA_distance" FLOAT,
 "CA_toll" FLOAT,
 "CA_duration" FLOAT,
-"loading_unit_id" ALPHANUM,
+"loading_unit_id" TEXT,
 "quantity_loading_unit" FLOAT,
 "dayly_working_time" FLOAT
 );
